@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Layouts_AppBasharov.StackPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Label x:Name="lbl" 
+                   Text="Где Серега?"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                   />
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btn" 
+                    Text="Я знаю где Серега" 
+                    BackgroundColor="#8FF045" 
+                    BorderColor="#0B185F" 
+                    BorderWidth="7" 
+                    FontSize="Medium" 
+                    Clicked="btn_Clicked"
+                    VerticalOptions="FillAndExpand">
+
+                </Button>
+                <Button x:Name="btn2"
+                    Text="Стереть Серегу"
+                    BackgroundColor="#C81414"
+                    BorderColor="#F7461B"
+                    BorderWidth="7" 
+                    FontSize="Medium" 
+                    Clicked="btn2_Clicked"
+                    VerticalOptions="FillAndExpand">
+
+                </Button>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
