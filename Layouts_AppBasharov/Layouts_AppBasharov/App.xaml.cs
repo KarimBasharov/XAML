@@ -10,7 +10,7 @@ namespace Layouts_AppBasharov
         {
             InitializeComponent();
 
-            MainPage = new StackPage();
+            MainPage = new NewPage();
         }
 
         protected override void OnStart()
