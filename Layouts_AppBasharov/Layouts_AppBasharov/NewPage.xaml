@@ -7,7 +7,7 @@
             <Frame x:Name="pun" BackgroundColor="Red" 
                    CornerRadius="80" 
                    Padding="40" 
-                   Margin="100,0">
+                   Margin="115,0">
                 <Label x:Name="punane" 
                        Text="punane" 
                        FontSize="Large" 
@@ -16,7 +16,7 @@
             <Frame x:Name="kol" BackgroundColor="Yellow"
                    CornerRadius="80" 
                    Padding="40" 
-                   Margin="100,0">
+                   Margin="115,0">
                 <Label x:Name="kollane"
                           Text="kollane"
                           FontSize="Large"
@@ -25,7 +25,7 @@
             <Frame x:Name="roh" BackgroundColor="Green"
                    CornerRadius="80"
                    Padding="40"
-                   Margin="100,0">
+                   Margin="115,0">
                 <Label x:Name="roheline"
                        Text="roheline"
                        FontSize="Large"
