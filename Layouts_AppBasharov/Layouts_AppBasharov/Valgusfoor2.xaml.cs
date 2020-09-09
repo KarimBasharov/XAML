@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -21,45 +22,45 @@ namespace Layouts_AppBasharov
             punane = new Label()
             {
                 Text = "Punane",
-                TextColor = Color.Red,
-                FontSize = 18,
+                TextColor = Color.Black,
+                FontSize = 15,
                 FontAttributes = FontAttributes.Bold
             };
             pun = new Frame()
             {
                 BackgroundColor = Color.Red,
                 Content = punane,
-                CornerRadius = 90,
+                CornerRadius = 80,
                 Padding = 50,
                 HorizontalOptions=LayoutOptions.Center
             };
             kollane = new Label()
             {
                 Text = "Kollane",
-                TextColor = Color.Yellow,
-                FontSize = 18,
+                TextColor = Color.Black,
+                FontSize = 15,
                 FontAttributes = FontAttributes.Bold
             };
             kol = new Frame()
             {
                 BackgroundColor = Color.Yellow,
                 Content = kollane,
-                CornerRadius = 90,
+                CornerRadius = 80,
                 Padding = 50,
                 HorizontalOptions = LayoutOptions.Center
             };
             roheline = new Label()
             {
                 Text = "Roheline",
-                TextColor = Color.Green,
-                FontSize = 18,
+                TextColor = Color.Black,
+                FontSize = 15,
                 FontAttributes = FontAttributes.Bold
             };
             roh = new Frame()
             {
                 BackgroundColor = Color.Green,
                 Content = roheline,
-                CornerRadius = 90,
+                CornerRadius = 80,
                 Padding = 50,
                 HorizontalOptions = LayoutOptions.Center
 
@@ -68,14 +69,14 @@ namespace Layouts_AppBasharov
             {
                 Text = "Välja",
                 BackgroundColor = Color.Gray,
-                HorizontalOptions = LayoutOptions.Start
+                HorizontalOptions = LayoutOptions.End
 
             };
             sisse = new Button()
             {
                 Text = "Sisse",
                 BackgroundColor = Color.Gray,
-                HorizontalOptions = LayoutOptions.End
+                HorizontalOptions = LayoutOptions.Start
             };
             StackLayout stackLayout = new StackLayout()
             {
@@ -101,26 +102,50 @@ namespace Layouts_AppBasharov
             }
             if (fr == kol)
             {
-                kollane.Text = "Внимание";
+                kollane.Text = "Внимание!!!";
             }
             if (fr == roh)
             {
-                roheline.Text = "Отчислен";
+                roheline.Text = "Вперед!!!";
             }
         }
 
-        private void Valja_Clicked(object sender, EventArgs e)
+        private async void Valja_Clicked(object sender, EventArgs e)
         {
-            pun.BackgroundColor = Color.Gray;
-            kol.BackgroundColor = Color.Gray;
-            roh.BackgroundColor = Color.Gray;
-        }
 
-        private void Sisse_Clicked(object sender, EventArgs e)
+            punane.Text = "!Светофор не работает!";
+            kollane.Text = "!Светофор не работает!";
+            roheline.Text = "!Светофор не работает!";
+            kol.BorderColor = Color.WhiteSmoke;
+            for (int i = 0; i < 100; i++)
+            {
+
+                pun.BackgroundColor = Color.Gray;
+                kol.BackgroundColor = Color.Yellow;
+                roh.BackgroundColor = Color.Gray;
+
+
+                await Task.Run(() => Thread.Sleep(3000));
+
+            }
+        }
+        Random rnd = new Random();
+        private async void Sisse_Clicked(object sender, EventArgs e)
         {
-            pun.BackgroundColor = Color.Red;
-            kol.BackgroundColor = Color.Yellow;
-            roh.BackgroundColor = Color.Green;
+            punane.Text = " Стоп!!!";
+            kollane.Text = "Внимание!!!";
+            roheline.Text = "Вперед!!!";
+            pun.BorderColor = Color.WhiteSmoke;
+            for (int i=0; i< 100; i++)
+            {
+                
+                pun.BackgroundColor = Color.Red;
+                kol.BackgroundColor = Color.Yellow;
+                roh.BackgroundColor = Color.Green;
+                
+
+                await Task.Run(() => Thread.Sleep(3000));
+            }
         }
     }
 }
