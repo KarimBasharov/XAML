@@ -117,6 +117,7 @@ namespace Layouts_AppBasharov
             kollane.Text = "!Светофор не работает!";
             roheline.Text = "!Светофор не работает!";
             kol.BorderColor = Color.WhiteSmoke;
+            roh.BorderColor = Color.WhiteSmoke;
             for (int i = 0; i < 100; i++)
             {
 
@@ -126,6 +127,7 @@ namespace Layouts_AppBasharov
 
 
                 await Task.Run(() => Thread.Sleep(3000));
+                break;
 
             }
         }
@@ -145,6 +147,7 @@ namespace Layouts_AppBasharov
                 
 
                 await Task.Run(() => Thread.Sleep(3000));
+                break;
             }
         }
     }
