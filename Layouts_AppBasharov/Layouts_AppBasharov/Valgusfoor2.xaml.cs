@@ -12,68 +12,115 @@ namespace Layouts_AppBasharov
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Valgusfoor2 : ContentPage
     {
+        Label punane, kollane, roheline;
+        Frame pun, kol, roh;
+        Button sisse, valja;
         public Valgusfoor2()
         {
             //InitializeComponent();
-            Label punane = new Label()
+            punane = new Label()
             {
                 Text = "Punane",
                 TextColor = Color.Red,
-                FontSize = 30,
+                FontSize = 18,
                 FontAttributes = FontAttributes.Bold
             };
-            Frame pun = new Frame()
+            pun = new Frame()
             {
                 BackgroundColor = Color.Red,
                 Content = punane,
-                CornerRadius = 80,
-                Margin = new Thickness(40, 115, 40, 115)
+                CornerRadius = 90,
+                Padding = 50,
+                HorizontalOptions=LayoutOptions.Center
             };
-            Label kollane = new Label()
+            kollane = new Label()
             {
                 Text = "Kollane",
                 TextColor = Color.Yellow,
-                FontSize = 30,
+                FontSize = 18,
                 FontAttributes = FontAttributes.Bold
             };
-            Frame kol = new Frame()
+            kol = new Frame()
             {
                 BackgroundColor = Color.Yellow,
                 Content = kollane,
-                CornerRadius = 80,
-                Margin = new Thickness(40, 115, 40, 115)
+                CornerRadius = 90,
+                Padding = 50,
+                HorizontalOptions = LayoutOptions.Center
             };
-            Label roheline = new Label()
+            roheline = new Label()
             {
                 Text = "Roheline",
                 TextColor = Color.Green,
-                FontSize = 30,
+                FontSize = 18,
                 FontAttributes = FontAttributes.Bold
             };
-            Frame roh = new Frame()
+            roh = new Frame()
             {
                 BackgroundColor = Color.Green,
                 Content = roheline,
-                CornerRadius = 80,
-                Margin = new Thickness(80, 0, 80, 0),
-                VerticalOptions = 
+                CornerRadius = 90,
+                Padding = 50,
+                HorizontalOptions = LayoutOptions.Center
+
             };
-            Button but = new Button()
+            valja = new Button()
             {
                 Text = "Välja",
                 BackgroundColor = Color.Gray,
+                HorizontalOptions = LayoutOptions.Start
 
             };
-            Button but2 = new Button()
+            sisse = new Button()
             {
                 Text = "Sisse",
+                BackgroundColor = Color.Gray,
+                HorizontalOptions = LayoutOptions.End
             };
             StackLayout stackLayout = new StackLayout()
             {
-                Children = { pun, kol, roh, but, but2 }
+                Children = { pun, kol, roh, sisse, valja }
             };
-            stackLayout.Orientation = StackOrientation.Horizontal;
+            sisse.Clicked += Sisse_Clicked;
+            valja.Clicked += Valja_Clicked;
             Content = stackLayout;
+
+            var tap = new TapGestureRecognizer();
+            tap.Tapped += Tap_Tapped;
+            pun.GestureRecognizers.Add(tap);
+            kol.GestureRecognizers.Add(tap);
+            roh.GestureRecognizers.Add(tap);
+        }
+
+        private void Tap_Tapped(object sender, EventArgs e)
+        {
+            Frame fr = sender as Frame;
+            if (fr == pun)
+            {
+                punane.Text = "Стоп!!!";
+            }
+            if (fr == kol)
+            {
+                kollane.Text = "Внимание";
+            }
+            if (fr == roh)
+            {
+                roheline.Text = "Отчислен";
+            }
+        }
+
+        private void Valja_Clicked(object sender, EventArgs e)
+        {
+            pun.BackgroundColor = Color.Gray;
+            kol.BackgroundColor = Color.Gray;
+            roh.BackgroundColor = Color.Gray;
+        }
+
+        private void Sisse_Clicked(object sender, EventArgs e)
+        {
+            pun.BackgroundColor = Color.Red;
+            kol.BackgroundColor = Color.Yellow;
+            roh.BackgroundColor = Color.Green;
         }
     }
 }
