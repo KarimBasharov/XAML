@@ -10,7 +10,7 @@ namespace Layouts_AppBasharov
         {
             InitializeComponent();
 
-            MainPage = new Valgusfoor2();
+            MainPage = new RGB();
         }
 
         protected override void OnStart()
