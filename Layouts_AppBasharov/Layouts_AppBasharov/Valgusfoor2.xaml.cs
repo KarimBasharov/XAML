@@ -69,14 +69,14 @@ namespace Layouts_AppBasharov
             {
                 Text = "Välja",
                 BackgroundColor = Color.Gray,
-                HorizontalOptions = LayoutOptions.End
+                HorizontalOptions = LayoutOptions.Center
 
             };
             sisse = new Button()
             {
                 Text = "Sisse",
                 BackgroundColor = Color.Gray,
-                HorizontalOptions = LayoutOptions.Start
+                HorizontalOptions = LayoutOptions.Center
             };
             StackLayout stackLayout = new StackLayout()
             {
@@ -132,22 +132,33 @@ namespace Layouts_AppBasharov
             }
         }
         Random rnd = new Random();
-        private async void Sisse_Clicked(object sender, EventArgs e)
+        private void Sisse_Clicked(object sender, EventArgs e)
         {
             punane.Text = " Стоп!!!";
             kollane.Text = "Внимание!!!";
             roheline.Text = "Вперед!!!";
             pun.BorderColor = Color.WhiteSmoke;
-            for (int i=0; i< 100; i++)
+            kol.BorderColor = Color.WhiteSmoke;
+            roh.BorderColor = Color.WhiteSmoke;
+            int c = rnd.Next(1, 4);
+            if (c == 1)
             {
-                
                 pun.BackgroundColor = Color.Red;
+                kol.BackgroundColor = Color.Gray;
+                roh.BackgroundColor = Color.Gray;
+            }
+            else if (c == 2)
+            {
+                pun.BackgroundColor = Color.Gray;
                 kol.BackgroundColor = Color.Yellow;
-                roh.BackgroundColor = Color.Green;
-                
+                roh.BackgroundColor = Color.Gray;
+            }
 
-                await Task.Run(() => Thread.Sleep(3000));
-                break;
+            else
+            {
+                pun.BackgroundColor = Color.Gray;
+                kol.BackgroundColor = Color.Gray;
+                roh.BackgroundColor = Color.Green;
             }
         }
     }
